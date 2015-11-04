@@ -14,9 +14,7 @@
     "page": "src/options.html",
     "chrome_style": true
   },
-  "permissions":[
-    "storage"
-  ],
+  "permissions":[ "storage" ],
   "content_scripts": [
     {
       "matches": [ "http://*/*", "https://*/*" ],
