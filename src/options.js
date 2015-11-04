@@ -41,7 +41,7 @@ function retrieveData() {
 // Add handler. Won't add a new one if the last is blank
 add.addEventListener('click', function() {
   var inputs = getInputs();
-  if (inputs[inputs.length-1].value.trim())
+  if (inputs.length === 0 || inputs[inputs.length-1].value.trim())
     content.appendChild(newInput(''));
 });
 
