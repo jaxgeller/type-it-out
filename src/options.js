@@ -29,7 +29,9 @@ function getInputs() {
 
 // Retrieves data and inits inputs
 function retrieveData() {
-  chrome.storage.sync.get({sitesEnabled:[]}, function(items) {
+  chrome.storage.sync.get({sitesEnabled:[
+    'developer.mozilla.org', 'stackoverflow.com\/questions\/*'
+    ]}, function(items) {
     items.sitesEnabled.forEach(function(item) {
       content.appendChild(newInput(item));
     });
