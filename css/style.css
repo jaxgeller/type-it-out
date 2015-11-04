@@ -7,7 +7,7 @@
   background-color: #666;
   text-align: center;
   z-index: -1;
-  }
+}
 ._tio-message p {
   font-size: 30px;
   position: absolute;
@@ -16,7 +16,8 @@
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
   font-family: monospace;
-  color: white; }
+  color: white;
+}
 
 @-webkit-keyframes _tio-fade-in-out {
   0% {
@@ -26,7 +27,8 @@
   50% {
     opacity: 1; }
   100% {
-    opacity: 0; } }
+    opacity: 0; }
+}
 
 @keyframes _tio-fade-in-out {
   0% {
@@ -36,9 +38,11 @@
   50% {
     opacity: 1; }
   100% {
-    opacity: 0; } }
+    opacity: 0; }
+}
 
 ._tio-animate {
   z-index: 9999999;
   -webkit-animation: _tio-fade-in-out 1s ease;
-          animation: _tio-fade-in-out 1s ease; }
+          animation: _tio-fade-in-out 1s ease;
+}
