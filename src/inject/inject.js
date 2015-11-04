@@ -1,5 +1,8 @@
 'use strict';
 
+console.log(chrome)
+console.log(chrome.storage)
+
 var div = document.createElement('div');
   div.classList.add('_tio-message');
   div.innerHTML = '<p>Type it out</p>';

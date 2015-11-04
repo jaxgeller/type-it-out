@@ -14,10 +14,17 @@
     "page": "src/bg/background.html",
     "persistent": true
   },
+  "options_ui": {
+    "page": "src/options.html",
+    "chrome_style": true
+  },
+  "permissions":[
+    "storage"
+  ],
   "content_scripts": [
     {
       "matches": [
-        "*://stackoverflow.com/*"
+        "http://*/*", "https://*/*"
       ],
       "js": [
         "src/inject/inject.js"

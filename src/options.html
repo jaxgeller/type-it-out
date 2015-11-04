@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body: { padding: 10px; }
+    .site-input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px !important;
+    }
+  </style>
+</head>
+<body>
+  <h3 id="status">Add Sites Below</h3>
+  <p>You can add whole hosts or even add regex</p>
+  <p>Examples</p>
+  <pre>
+    stackoverflow --> matches anything with stackoverflow in the url
+    stackoverflow.com\/questions\/* --> matches anything under stackoverflow.com/questions
+  </pre>
+
+  <div id="content"></div>
+  <div id="ui"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>
