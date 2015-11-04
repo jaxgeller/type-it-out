@@ -9,6 +9,7 @@ function newInput(value) {
   var input = document.createElement('input');
       input.classList.add('site-input');
       input.value = value;
+      input.placeholder = 'add urls, keywords, or regexes';
       isValid(input);
       input.addEventListener('keyup', function() {return isValid(this);});
   return input;

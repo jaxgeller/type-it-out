@@ -12,13 +12,12 @@
   </style>
 </head>
 <body>
-  <h3 id="status">Add Sites Below</h3>
-  <p>You can add whole hosts or even add regex</p>
+  <h3 id="status">Add Filters Below</h3>
   <p>Examples</p>
   <pre>
-    stackoverflow --> matches anything with stackoverflow in the url
-    stackoverflow.com\/questions\/* --> matches anything under stackoverflow.com/questions
-    .+ --> matches everything
+    .+                              : match everything
+    stackoverflow                   : match anything with stackoverflow in the url
+    stackoverflow.com\/questions\/* : match any stackoverflow question
   </pre>
 
   <div id="content"></div>
