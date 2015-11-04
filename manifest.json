@@ -1,6 +1,6 @@
 {
   "name": "Type It Out",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "manifest_version": 2,
   "description": "Disables copying on certain sites, forcing you to type it out.",
   "homepage_url": "https://github.com/jaxgeller/type-it-out",
@@ -10,10 +10,6 @@
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
-  "background": {
-    "page": "src/bg/background.html",
-    "persistent": true
-  },
   "options_ui": {
     "page": "src/options.html",
     "chrome_style": true
@@ -23,15 +19,9 @@
   ],
   "content_scripts": [
     {
-      "matches": [
-        "http://*/*", "https://*/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ],
-      "css": [
-        "css/style.css"
-      ]
+      "matches": [ "http://*/*", "https://*/*" ],
+      "js": [ "src/inject/inject.js" ],
+      "css": [ "css/style.css" ]
     }
   ]
 }
