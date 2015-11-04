@@ -1,55 +1,60 @@
-// document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', retrieveData);
 
-// chrome.storage.sync.get({
-//   sitesEnabled: []
-// }, function(items) {
-//   items.sitesEnabled.forEach(function(item) {
-//     var input = document.createElement('input');
-//         input.classList.add('site-input');
-//         input.value = item;
-//     document.getElementById('content').appendChild(input);
-//   });
-//   addUi();
-// });
+var add = document.getElementById('add');
+var submit = document.getElementById('submit');
+var content = document.getElementById('content');
 
-// function addUi() {
-//   var input = document.createElement('input');
-//   var add = document.createElement('button');
-//   var submit = document.createElement('button');
+// Creates a new input
+function newInput(value) {
+  var input = document.createElement('input');
+      input.classList.add('site-input');
+      input.value = value;
+      isValid(input);
+      input.addEventListener('keyup', function() {return isValid(this);});
+  return input;
+}
 
-//   input.classList.add('site-input');
+// Checks if input is valid
+function isValid(input) {
+  if (input.value.trim())
+    input.style.borderColor = 'green';
+  else
+    input.style.borderColor = 'red';
+}
 
-//   add.id += 'add';
-//   add.textContent = 'add'
+// Returns de-nodified inputs
+function getInputs() {
+  return Array.prototype.slice.call(document.querySelectorAll('.site-input'));
+}
 
-//   submit.id += 'submit';
-//   submit.textContent = 'submit'
+// Retrieves data and inits inputs
+function retrieveData() {
+  chrome.storage.sync.get({sitesEnabled:[]}, function(items) {
+    items.sitesEnabled.forEach(function(item) {
+      content.appendChild(newInput(item));
+    });
+  });
+}
 
-//   document.getElementById('content').appendChild(input);
-//   document.getElementById('ui').appendChild(add);
-//   document.getElementById('ui').appendChild(submit);
+// Add handler. Won't add a new one if the last is blank
+add.addEventListener('click', function() {
+  var inputs = getInputs();
+  if (inputs[inputs.length-1].value.trim())
+    content.appendChild(newInput(''));
+});
 
-//   add.onclick = function() {
-//     var input = document.createElement('input');
-//     input.classList.add('site-input');
-//     document.getElementById('content').appendChild(input);
-//   }
+// Submit handler
+submit.addEventListener('click', function() {
+  var inputs = getInputs().filter(function(input) {
+    return input.value.trim();
+  }).map(function(input) {
+    return input.value;
+  });
 
-//   submit.onclick = function() {
-//     var holder = [];
-//     Array.prototype.slice.call(document.querySelectorAll('.site-input')).forEach(function(item) {
-//       if (item.value !== '')
-//         holder.push(item.value);
-//     });
-
-//     chrome.storage.sync.set({
-//       sitesEnabled: holder
-//     }, function() {
-//     });
-
-//   }
-// }
-
-
-
-// });
+  chrome.storage.sync.set({
+    sitesEnabled: inputs
+  }, function() {
+    submit.textContent = 'Saved!';
+    setTimeout(function(){submit.textContent = 'Submit'}, 1000);
+  });
+});
