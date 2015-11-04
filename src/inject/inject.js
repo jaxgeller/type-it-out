@@ -1,19 +1,30 @@
 'use strict';
 
-console.log(chrome)
-console.log(chrome.storage)
+chrome.storage.sync.get({sitesEnabled:[]}, function(items) {
+  var url = window.location.href;
+  var sites = items.sitesEnabled;
 
-var div = document.createElement('div');
-  div.classList.add('_tio-message');
-  div.innerHTML = '<p>Type it out</p>';
+  for (var i = 0; i < sites.length; i++) {
+    if ( url.match(new RegExp(sites[i])) ) {
+      shouldNotCopy();
+      break;
+    }
+  }
+});
 
-document.body.appendChild(div);
+function shouldNotCopy() {
+  var div = document.createElement('div');
+    div.classList.add('_tio-message');
+    div.innerHTML = '<p>Type it out</p>';
 
-document.oncopy = function(e) {
-  window.getSelection().empty();
-  div.classList.add('_tio-animate');
+  document.body.appendChild(div);
 
-  setTimeout(function() {
-    div.classList.remove('_tio-animate');
-  }, 1000);
+  document.oncopy = function(e) {
+    window.getSelection().empty();
+    div.classList.add('_tio-animate');
+
+    setTimeout(function() {
+      div.classList.remove('_tio-animate');
+    }, 1000);
+  }
 }
