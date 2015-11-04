@@ -1,6 +1,6 @@
 'use strict';
-
-chrome.storage.sync.get({sitesEnabled:[]}, function(items) {
+console.log('werking')
+chrome.storage.sync.get({sitesEnabled:['developer.mozilla.org', 'stackoverflow.com\/questions\/*']}, function(items) {
   var url = window.location.href;
   var sites = items.sitesEnabled;
 
