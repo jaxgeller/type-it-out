@@ -2,11 +2,9 @@
 
 A chrome extension that disables copying, forcing you to type it out.
 
-<img src="https://github.com/jaxgeller/type-it-out/blob/master/examples/screens/overlay.png" alt="Type it out screenshot">
-
 ### Install
 
-Download the extension [here](A chrome extension that disables copying, forcing you to type it out.)
+Download the extension [on the chrome store](https://chrome.google.com/webstore/detail/cakjfpgihbciegpnmholbaafghdbngjp/publish-accepted)
 
 or
 
@@ -32,6 +30,13 @@ For example
 `mail`             matches anything with mail in the url.
 `https:\/\/.*`     matches every https site.
 ```
+
+### Screen Shots
+
+<img src="https://github.com/jaxgeller/type-it-out/blob/master/examples/screens/copying.png">
+<img src="https://github.com/jaxgeller/type-it-out/blob/master/examples/screens/overlay.png">
+<img src="https://github.com/jaxgeller/type-it-out/blob/master/examples/screens/options.png">
+
 
 ### License
 [MIT](https://github.com/jaxgeller/type-it-out/blob/master/LICENSE)
