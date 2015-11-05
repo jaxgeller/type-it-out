@@ -1,6 +1,8 @@
 {
   "name": "Type It Out",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "short_name": "Type It Out",
+  "author": "Jackson Geller",
   "manifest_version": 2,
   "description": "Disables copying on certain sites, forcing you to type it out.",
   "homepage_url": "https://github.com/jaxgeller/type-it-out",
